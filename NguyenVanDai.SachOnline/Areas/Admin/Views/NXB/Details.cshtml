@@ -1,0 +1,46 @@
+﻿@model NguyenVanDai.SachOnline.Models.NHAXUATBAN
+
+@{
+    ViewBag.Title = "Details nhaxuatban";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center">CHI TIẾT NHÀ XUẤT BẢN</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Mã nhà xuất bản:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaNXB)
+        </dd>
+
+        <dt>
+            Tên nhà xuất bản:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenNXB)
+        </dd>
+        <dt>
+            Địa chỉ:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        <dt>
+            Điện thoại:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaNXB })
+    <br />
+    <div style="text-align:center;">
+        @Html.ActionLink("VỀ TRANG QUẢN LÝ", "Index")
+    </div>
+</p>

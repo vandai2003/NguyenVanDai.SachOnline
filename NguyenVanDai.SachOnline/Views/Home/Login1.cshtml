@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/Admin/css")
+    <title>Login</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="~/Admin/Home/Login" method="post" class="box login">
+                    <h2>Login admin</h2>
+                    <div class="inputbox">
+                        <input type="text" tabindex="1" name="UserName" required>
+                        <label for="">Username</label>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" name="Password" tabindex="2" required>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="forget">
+                        <label for=""><input type="checkbox">Remember me <a href="#"> Forget password</a></label>
+                    </div>
+
+                    <button>Login</button>
+                    <div class="register">
+                        <p>Don't have a account <a href="#">Register</a></p>
+                    </div>
+                    <p style="font-style:italic; color:red; margin:0px;">@ViewBag.ThongBao</p>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html><!--
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Content/Admin/css")
+</head>
+<body>
+    <form action="~/Admin/Home/Login" method="post" class="box login">
+        <fieldset class="boxBody">
+            <h4 style="text-align:center;font-weight:bold">LOGIN ADMIN</h4>
+            <label>Username</label>
+            <input type="text" tabindex="1" name="UserName" placeholder="Type your
+username" required>
+            <label>
+                <a href="#" class="rLink" tabindex="5">
+                    Forget your
+                    password?
+                </a>Password
+            </label>
+            <input type="password" tabindex="2" name="Password" placeholder="Type your
+password" required>
+            <p style="font-style:italic; color:red; margin:0px;">@ViewBag.ThongBao</p>
+        </fieldset>
+        <footer>
+
+            <label><input type="checkbox" tabindex="3">Keep me logged in</label>
+            <input type="submit" class="btnLogin" value="Login" tabindex="4">
+        </footer>
+    </form>
+</body>
+</html>
+-->

@@ -1,0 +1,66 @@
+﻿@using NguyenVanDai.SachOnline.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<NguyenVanDai.SachOnline.Models.CHUDE>
+
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Quản lí chủ đề";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;">QUẢN LÝ THÔNG TIN CHỦ ĐỀ</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th style="width:200px;"></th>
+        <th>
+            Tên chủ đề
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChuDe)
+            </td>
+            <td style="text-align:right;">
+
+                <a href="@Url.Action("Edit", new { id = item.MaCD })" class="btn btn-warning" role="button">Sửa</a>
+
+                <a href="@Url.Action("Details", new { id = item.MaCD })" class="btn btn-primary" role="button">Chi tiết</a>
+
+                <a href="@Url.Action("Delete", new { id = item.MaCD })" class="btn btn-danger" role="button">Xóa</a>
+            </td>
+        </tr>
+    }
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 :
+Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuTrang {
+        display: inline;
+        text-align: center;
+    }
+</style>

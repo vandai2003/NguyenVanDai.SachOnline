@@ -1,0 +1,64 @@
+﻿@model NguyenVanDai.SachOnline.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Create donhang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÊM ĐƠN HÀNG</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    <!--
+    <div class="form-group">
+        <label class="control-label col-md-2">Mã khách:</label>
+        <div class="col-md-10">
+            <input type="text" name="MaKH" required />
+        </div>
+    </div>
+    -->
+    <div class="form-group">
+        <label class="control-label col-md-2">Ngày đặt:</label>
+        <div class="col-md-10">
+            <input type="date" name="dNgayDat" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Ngày giao:</label>
+        <div class="col-md-10">
+            <input type="date" name="dNgayGiao" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Tình trạng giao hàng:</label>
+        <div class="col-md-10" style="width:150px;">
+            @Html.EditorFor(model => model.TinhTrangGiaoHang, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TinhTrangGiaoHang, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Đã thanh toán:</label>
+        <div class="col-md-10" style="width:150px;">
+            @Html.EditorFor(model => model.DaThanhToan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DaThanhToan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Thêm mới" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ", "Index")
+</div>

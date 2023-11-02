@@ -1,0 +1,72 @@
+﻿@using NguyenVanDai.SachOnline.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<NguyenVanDai.SachOnline.Models.NHAXUATBAN>
+
+@{
+    ViewBag.Title = "Quản lí nhà xuất bản";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;">QUẢN LÝ NHÀ XUẤT BẢN</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th  style="text-align:center;">
+            Mã nhà xuất bản
+        </th>
+        <th>
+            Tên nhà xuất bản
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Điện thoại
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align:center;">
+                @Html.DisplayFor(model => item.MaNXB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNXB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoai)
+            </td>
+            <td>
+
+                <a href="@Url.Action("Edit", new { id = item.MaNXB })" class="btn btn-warning" role="button">Sửa</a>
+
+                <a href="@Url.Action("Details", new { id = item.MaNXB })" class="btn btn-primary" role="button">Chi tiết</a>
+
+                <a href="@Url.Action("Delete", new { id = item.MaNXB })" class="btn btn-danger" role="button">Xóa</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 :
+Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuTrang {
+        display: inline;
+        text-align: center;
+    }
+</style>

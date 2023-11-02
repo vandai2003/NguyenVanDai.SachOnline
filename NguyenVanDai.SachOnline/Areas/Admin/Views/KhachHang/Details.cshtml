@@ -1,0 +1,78 @@
+﻿@model NguyenVanDai.SachOnline.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Details khachhang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2 style="text-align:center">CHI TIẾT KHÁCH HÀNG</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Mã khách hàng: 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+
+        <dt>
+            Họ tên: 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            Tài khoản: 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+
+        <dt>
+            Mật khẩu: 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Địa chỉ: 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Điện thoại: 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+        <dt>
+            Ngày sinh: 
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaKH })
+    <br />
+    <div style="text-align:center;">
+        @Html.ActionLink("VỀ TRANG QUẢN LÝ", "Index")
+    </div>
+</p>

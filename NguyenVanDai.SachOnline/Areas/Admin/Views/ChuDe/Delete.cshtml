@@ -1,0 +1,32 @@
+﻿@model NguyenVanDai.SachOnline.Models.CHUDE
+
+@{
+    ViewBag.Title = "Delete chude";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có chắc chắn muốn xóa</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên chủ đề:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuDe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="XÓA" class="btn btn-default" /> |
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ", "Index")
+</div>
+    }
+</div>
